@@ -1,4 +1,4 @@
-name: setting up environment
+name: setting up app
 
 on:
   push:
@@ -11,7 +11,7 @@ env:
   GitHubName: "ashwinstr" 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu
 
     steps:
        - name: Checkout
@@ -27,12 +27,12 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.CREDS }} userge
-       - name: Running Userge
+           git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.CREDS }} app
+       - name: testing app
          timeout-minutes: 350
          continue-on-error: true
          run: |
-           cd userge
+           cd app
            docker-compose up -d
            docker-compose logs -f
        - name: Loop workflow
