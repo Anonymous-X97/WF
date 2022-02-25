@@ -10,8 +10,8 @@ env:
   GitHubMail: "ashwinstr@gmail.com"
   GitHubName: "ashwinstr" 
 jobs:
-  build:
-    runs-on: ubuntu
+  test:
+    runs-on: ubuntu-21.10
 
     steps:
        - name: Checkout
